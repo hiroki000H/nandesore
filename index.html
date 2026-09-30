@@ -18,14 +18,25 @@
     <section class="card" aria-live="polite">
       <div class="category" id="category">映画会社</div>
       <div class="word" id="word">A24</div>
-      <div class="meta">初期100語 Version 2</div>
+
+      <div class="meaning-panel" id="meaningPanel" hidden>
+        <p class="meaning-label">30秒で理解</p>
+        <p class="meaning-text" id="meaningText"></p>
+      </div>
+
+      <div class="meta">100語からランダム出題 ・ Version 0.2</div>
     </section>
 
-    <button id="nextButton" class="next-button" type="button">
-      次の言葉 →
-    </button>
+    <div class="actions">
+      <button id="meaningButton" class="meaning-button" type="button">
+        意味を見る
+      </button>
+      <button id="nextButton" class="next-button" type="button">
+        次の言葉 →
+      </button>
+    </div>
 
-    <p class="hint">ボタンを押すたびに100語からランダム表示します。</p>
+    <p class="hint">意味を確認したら、次の言葉へ。知らない界隈を少しずつ覗いていこう。</p>
   </main>
 
   <script src="words.js"></script>
