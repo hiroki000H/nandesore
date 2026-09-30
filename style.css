@@ -17,6 +17,10 @@ body {
     linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
 }
 
+button {
+  font: inherit;
+}
+
 .app {
   width: min(92vw, 680px);
   min-height: 100vh;
@@ -57,7 +61,7 @@ h1 {
   padding: 40px 28px;
   border: 1px solid rgba(148, 163, 184, 0.25);
   border-radius: 28px;
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 24px 70px rgba(15, 23, 42, 0.09);
   backdrop-filter: blur(14px);
 }
@@ -82,40 +86,93 @@ h1 {
   word-break: keep-all;
 }
 
+.meaning-panel {
+  margin-top: 28px;
+  padding: 20px;
+  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  animation: reveal 0.18s ease-out;
+}
+
+.meaning-label {
+  margin: 0 0 8px;
+  color: #6366f1;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.meaning-text {
+  margin: 0;
+  color: #334155;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
 .meta {
   margin-top: 24px;
   font-size: 13px;
   color: #94a3b8;
 }
 
-.next-button {
-  width: 100%;
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 12px;
   margin-top: 20px;
-  padding: 18px 22px;
-  border: 0;
-  border-radius: 18px;
-  background: #0f172a;
-  color: white;
-  font: inherit;
-  font-size: 17px;
-  font-weight: 800;
-  cursor: pointer;
-  transition: transform 0.12s ease, opacity 0.12s ease;
 }
 
+.meaning-button,
+.next-button {
+  min-height: 58px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.12s ease, opacity 0.12s ease, background 0.12s ease;
+}
+
+.meaning-button {
+  border: 1px solid #c7d2fe;
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+.next-button {
+  border: 0;
+  background: #0f172a;
+  color: white;
+}
+
+.meaning-button:hover,
 .next-button:hover {
   opacity: 0.92;
 }
 
+.meaning-button:active,
 .next-button:active {
   transform: scale(0.985);
 }
 
 .hint {
-  margin: 16px 0 0;
+  margin: 16px 12px 0;
   text-align: center;
   font-size: 12px;
+  line-height: 1.7;
   color: #94a3b8;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 520px) {
@@ -126,5 +183,14 @@ h1 {
   .card {
     padding: 34px 22px;
     border-radius: 24px;
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
+
+  .meaning-button,
+  .next-button {
+    width: 100%;
   }
 }
